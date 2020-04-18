@@ -8,12 +8,9 @@ function playGame() {
     // player choses spot
     var moveResult = game1.makeMove(5 ,player1);
     var moveResult = game1.makeMove(7, player2);
-    var moveResult = game1.makeMove(300, player1);
-    var moveResult = game1.makeMove(-7, player2);
-    var moveResult = game1.makeMove(79, player1);
-    var moveResult = game1.makeMove("litty", player2);
-    var moveResult = game1.makeMove(5, player2);
-    var moveResult = game1.makeMove(3, player1);
+    var moveResult = game1.makeMove(2, player1);
+    var moveResult = game1.makeMove(6, player2);
+    var moveResult = game1.makeMove(8, player1);
     // check spot taken
     // if taken ask again
     if (moveResult === false) {
