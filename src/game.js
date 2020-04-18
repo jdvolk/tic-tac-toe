@@ -24,7 +24,7 @@ class Game {
       return false;
     } else {
       this.board[spot] = player.token;
-      // this.checkWinConditions();
+      this.checkWinConditions(player);
       return true;
     }
     
@@ -43,15 +43,39 @@ class Game {
       [0, 4, 8],
       [6, 4, 2],
     ];
+    for(var i = 0; i < winningConditions.length; i++) {
+      var spotOne = winningConditions[i][0]; 
+      var spotTwo = winningConditions[i][1]; 
+      var spotThree = winningConditions[i][2]; 
+      //  loop though win condition array
+      if (player.token === this.board[spotOne] && player.token === this.board[spotTwo] && player.token === this.board[spotThree]) {
+        this.completeGame(player);
+        // then player won
+      } else {
+        // check is draw
+        // the move on with game
+      }
+    }
     // if (!winningConditions) {
-    //   this.isDraw();
-    // }
-
+      //   this.isDraw();
+      // }
+      
+    }
+  completeGame(player) {
+    // save win to storage
+    this.saveWin(player)
+    // game state is done
+    this.isDoneState = true;
+    // reset the board
+    this.resetBoard();
   }
   // way to detect if game is a draw
   isDraw() {}
   // way to save the boards data to correct player's win array
-  saveWin() {}
+  saveWin(player) {
+    player.wins.push(this.board);
+    player.saveWinsToStorage();
+  }
   // a way to reset the game's board data to begin a new game
   resetBoard() {}
 }
