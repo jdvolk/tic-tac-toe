@@ -5,26 +5,47 @@ class Game {
       "", "", "",
       "", "", "",
       "", "", "",
-    ];
-    // two player instances
-    // var playerOne = new Player();
-    // var playerTwo = new Player();
+    ]; 
+    this.player1 = player1;
+    this.player2 = player2;
+    
+    // could flip a coin to decide 
+    this.currentTurn = player1;
     this.winner = undefined;
+
   }
+
   // way to keep track of the date for the game board
-  trackBoard() {
-  }
+
   makeMove(spot, player) {
+    if (player !== this.currentTurn) {
+      return false;
+    }
+
     if (this.board[spot] !== "" || (spot > 8 || spot < 0)) {
       return false;
     } else {
       this.board[spot] = player.token;
       this.checkWinConditions(player);
+      this.swapTurn();
       return true;
     }
   }
   // way to keep track of which players turn it is
-  whosTurn() {}
+  whosTurn() {
+    return this.currentTurn;
+    // who goes first
+    // who goes second (!first)
+    // repeat
+    // cant go twice in a row
+  }
+  swapTurn() {
+    if (this.currentTurn === this.player1) {
+      this.currentTurn = this.player2;
+    } else {
+      this.currentTurn = this.player1;
+    }
+  }
   // way to check the boards data for win conditions
   checkWinConditions(player) {
     var winningConditions = [
