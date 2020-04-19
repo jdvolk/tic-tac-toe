@@ -1,6 +1,5 @@
 class Game {
   // game should include:
-  
   constructor(player1, player2) {
     this.board = [
       "", "", "",
@@ -10,14 +9,10 @@ class Game {
     // two player instances
     // var playerOne = new Player();
     // var playerTwo = new Player();
-     this.isDoneState = false;
+    this.winner = undefined;
   }
   // way to keep track of the date for the game board
-  isDone() {
-    return this.isDoneState;
-  }
   trackBoard() {
-
   }
   makeMove(spot, player) {
     if (this.board[spot] !== "" || (spot > 8 || spot < 0)) {
@@ -27,7 +22,6 @@ class Game {
       this.checkWinConditions(player);
       return true;
     }
-    
   }
   // way to keep track of which players turn it is
   whosTurn() {}
@@ -49,33 +43,45 @@ class Game {
       var spotThree = winningConditions[i][2]; 
       //  loop though win condition array
       if (player.token === this.board[spotOne] && player.token === this.board[spotTwo] && player.token === this.board[spotThree]) {
-        this.completeGame(player);
+        this.saveWin(player);
+        // this.completeGame(player, true);
         // then player won
       } else {
-        // check is draw
         // the move on with game
       }
     }
     // if (!winningConditions) {
       //   this.isDraw();
-      // }
-      
-    }
-  completeGame(player) {
-    // save win to storage
-    this.saveWin(player)
-    // game state is done
-    this.isDoneState = true;
-    // reset the board
-    this.resetBoard();
+      // } 
   }
+  // completeGame(player, isWin) {
+  //   if (isWin === true) {
+  //     this.saveWin(player);
+  //   }
+    // save win to storage
+    // game state is done
+    // reset the board
+  // }
   // way to detect if game is a draw
-  isDraw() {}
+  isDraw() {
+    if(!this.board.includes("") && (this.winner === undefined)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   // way to save the boards data to correct player's win array
   saveWin(player) {
+    this.winner = player;
     player.wins.push(this.board);
     player.saveWinsToStorage();
   }
   // a way to reset the game's board data to begin a new game
-  resetBoard() {}
+  resetBoard() {
+    this.board = [
+      "", "", "",
+      "", "", "",
+      "", "", "",
+    ];
+  }
 }
