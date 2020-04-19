@@ -14,7 +14,7 @@ function playGame() {
     var moveResult = game1.makeMove(4, player2);
     var moveResult = game1.makeMove(7, player1);
     var moveResult = game1.makeMove(6, player2);
-    var moveResult = game1.makeMove(8, player2);
+    var moveResult = game1.makeMove(8, player1);
     // check spot taken
     // if taken ask again
     if (moveResult === false) {
