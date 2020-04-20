@@ -1,7 +1,60 @@
-body {}
-h1, h2, h3, h4, h5, h6 {}
-.win-display {}
+:root {
+  --main-bg-color: #1d1d1dfa;
+  --shadow-top-light: -3px -4px 11px 0px #2e2d2d;
+  --shadow-bottom-dark: 6px 5px 13px 0px #1c1c1c;
+  --shadow-game-board: var(--shadow-top-light), var(--shadow-bottom-dark);
+  --shadow-inset-dark: inset 8px 12px 20px 3px #151515;
+  --shadow-inset-light: inset -3px -3px 20px 7px #292929;
+  --shadow-dark-outline: 1px 1px 8px 2px #19191959;  
+  --shadow-game-box: var(--shadow-inset-dark), var(--shadow-inset-light), var(--shadow-dark-outline);
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background-color: var(--main-bg-color);
+  font-family: sans-serif;
+  margin: 0px;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #cccccc;
+}
+.play-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.win-display {
+  max-width: 200px;
+  display: flex;
+  flex: auto; 
+  box-shadow: var(--shadow-game-box);
+  border-radius: 20px;
+  margin: 10px -3px 10px;
+  padding: 10px;
+}
 .top-display {}
 .left-win {}
 .right-win {}
-.game-board {}
+.game-board {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+  grid-gap: 25px;
+  border-radius: 20px;
+  width: 660px;
+  padding: 35px;
+  box-shadow:  var(--shadow-game-board);
+}
+.game-box {
+  display: flex;
+  justify-content: center;
+  box-shadow:  var(--shadow-game-box);
+  border-radius: 20px;
+}
+.token {
+  display: flex;
+  max-width: 150px;
+  filter: drop-shadow(7px 13px 0px #505050)
+}
