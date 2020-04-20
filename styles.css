@@ -1,7 +1,42 @@
-body {}
-h1, h2, h3, h4, h5, h6 {}
+:root {
+  --main-bg-color: #1d1d1dfa;
+  /* --inset-shadow-dark: inset 6px 6px 20px 10px #1111119c;
+  --shadow-dark: -7px -6px 20px 10px #232323;
+  --inset-shadow-light: inset -20px -19px 20px 10px #252525;
+  --shadow-light: 6px 6px 20px 10px #232323;
+  --shadow-light-outside: -7px -6px 20px 10px #232323;
+  --shadow-all-together: var(--inset-shadow-dark), var(--inset-shadow-light); */
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background-color: var(--main-bg-color);
+  font-family: sans-serif;
+  margin: 0px;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #cccccc;
+}
 .win-display {}
 .top-display {}
 .left-win {}
 .right-win {}
-.game-board {}
+.game-board {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+  grid-gap: 25px;
+  border-radius: 20px;
+  width: 660px;
+  padding: 35px;
+  box-shadow:  6px 5px 13px 0px #1c1c1c, -3px -4px 11px 0px #2e2d2d;
+}
+.game-box {
+  display: flex;
+  box-shadow:  inset 8px 12px 20px 3px #151515, inset -3px -3px 20px 7px #292929, 1px 1px 8px 2px #19191959;
+  border-radius: 20px;
+
+}
+
