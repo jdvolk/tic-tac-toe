@@ -15,9 +15,11 @@ body {
   background-color: var(--main-bg-color);
   font-family: sans-serif;
   margin: 0px;
+  color: #cccccc;
+  text-shadow: 3px 5px 6px black
+
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #cccccc;
 }
 .play-area {
   display: flex;
@@ -28,22 +30,27 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 200px;
   display: flex;
   flex: auto; 
-  box-shadow: var(--shadow-game-box);
+  /* box-shadow: var(--shadow-game-box); */
   border-radius: 20px;
-  margin: 10px -3px 10px;
+  margin: 10px 10px 10px;
   padding: 10px;
 }
-.top-display {}
+.top-display {
+  margin-bottom: -9px;
+  display: flex;
+  flex: auto; 
+  justify-content: center;
+  border-radius: 15px;
+}
 .left-win {}
 .right-win {}
 .game-board {
   margin: 10px;
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 200px 200px 200px;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
   grid-gap: 25px;
   border-radius: 20px;
-  width: 660px;
   padding: 35px;
   box-shadow:  var(--shadow-game-board);
 }
@@ -55,6 +62,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .token {
   display: flex;
-  max-width: 150px;
+  max-width: 100px;
   filter: drop-shadow(7px 13px 0px #505050)
+}
+ul {
+  margin: 10px;
+  padding-inline-start: 30px;
+}
+ul:before{
+  content:attr(aria-label);
+  font-size:100%;
+  font-weight: bold;
+  color: #cccccc; 
 }
