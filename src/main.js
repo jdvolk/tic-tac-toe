@@ -1,4 +1,38 @@
+// query selectors
+var topBannerSection = Document.querySelector("top-display");
+var gameSection = Document.querySelector('play-area');
+var leftWinSection = Document.querySelector('right-win');
+var rightWinSection = Document.querySelector('right-win');
+var gameBoardSection = Document.querySelector('game-board');
+var squareOne = Document.querySelector("space-1");
+var squareTwo = Document.querySelector('space-2');
+var squareThree = Document.querySelector('space-2');
+var squareFour = Document.querySelector('space-2');
+var squareFive = Document.querySelector('space-2');
+var squareSix = Document.querySelector('space-2');
+var squareSeven = Document.querySelector('space-2');
+var squareEight = Document.querySelector('space-2');
 
+// variables
+// event listeners
+topBannerSection.addEventListener('click', updateTopBanner)
+gameSection.addEventListener('click' (function(){}))
+leftWinSection.addEventListener('click', (function() {}))
+rightWinSection.addEventListener('click', (function() {}))
+gameBoardSection.addEventListener('click', (function() {}))
+// functions for each square or can just use the closest()
+squareOne.addEventListener('click' (function(){})) 
+squareTwo.addEventListener('click' (function(){}))
+squareThree.addEventListener('click' (function(){}))
+squareFour.addEventListener('click' (function(){}))
+squareFive.addEventListener('click' (function(){}))
+squareSix.addEventListener('click' (function(){}))
+squareSeven.addEventListener('click' (function(){}))
+squareEight.addEventListener('click' (function(){}))
+
+// event handlers
+function updateTopBanner() {}
+// functions
 function playGame() {
   debugger
   var player1 = new Player("justin", "x", undefined);
