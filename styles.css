@@ -8,9 +8,11 @@
   --shadow-dark-outline: 1px 1px 8px 2px #19191959;  
   --shadow-game-box: var(--shadow-inset-dark), var(--shadow-inset-light), var(--shadow-dark-outline);
 }
+
 html {
   -webkit-tap-highlight-color: transparent;
 }
+
 body {
   background-color: var(--main-bg-color);
   font-family: sans-serif;
@@ -19,15 +21,18 @@ body {
   text-shadow: 3px 5px 6px black
 
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
+
 .play-area {
   display: flex;
   flex-direction: row;
   justify-content: center;
   max-height: 592px;
 }
+
 .win-display {
   box-shadow: var(--shadow-game-box);
   border-radius: 20px;
@@ -36,6 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 200px;
   text-align: center;
 }
+
 .top-display {
   display: flex;
   padding: 10px;
@@ -44,8 +50,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   border-radius: 15px;
 }
-.left-win {}
-.right-win {}
+
 .game-board {
   margin: 10px;
   display: grid;
@@ -56,6 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 35px;
   box-shadow:  var(--shadow-game-board);
 }
+
 .game-box {
   display: flex;
   justify-content: center;
@@ -63,11 +69,13 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow:  var(--shadow-game-box);
   border-radius: 20px;
 }
+
 .token {
   display: flex;
   max-width: 100px;
   filter: drop-shadow(7px 13px 0px #505050)
 }
+
 .mini-board {
   margin: auto;
   grid-template-columns: repeat(3, minmax(20px, 1fr));
@@ -78,10 +86,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   box-shadow: none;
 }
+
 .mini-board .game-box {
   border-radius: 1px;
   box-shadow: none;
 }
+
 .mini-board .token {
   filter: drop-shadow(1px 1px 0px #505050);
   max-width: 10px;
@@ -93,10 +103,12 @@ ul {
   column-count: 2;
   break-inside: avoid;
 }
+
 li {
   break-inside: avoid;
   margin-bottom: 10px;
 }
+
 .win-scroll {
   overflow-y: auto;
   max-height: 85%;
