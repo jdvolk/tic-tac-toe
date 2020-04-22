@@ -31,10 +31,10 @@ activeGame.addEventListener('click', (function(event) {
   if (validMove) {
     target.innerHTML = generateTokenHTML(whosTurn.token);
     if (game.winner !== undefined) {
-      topBannerSection.innerText = `${game.winner.id} won!`;
+      updateTopBanner(`${game.winner.token.toUpperCase()} won!`);
       drawWins();
     } else if (game.isDraw()) {
-      topBannerSection.innerText = "Game is a draw";
+      updateTopBanner("Game is a draw");
     }
     //check win || draw
   } else {
@@ -73,7 +73,13 @@ activeGame.addEventListener('click', (function(event) {
   </li>`
  } 
 // event handlers
-function updateTopBanner() {
+function updateTopBanner(string) {
+  if(string) {
+    topBannerSection.innerText = string;
+  } else {
+    topBannerSection.innerText = "Lets Play!";
+  }
+
 }
 // functions
 
@@ -95,4 +101,5 @@ function resetGame() {
   for (var i = 0; i < playedTokens.length; i++) {
     playedTokens[i].remove();
   }
+  updateTopBanner();
 }
