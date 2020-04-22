@@ -1,5 +1,10 @@
 # Tic Tac Toe  Solo Project
 
+## Deployed Public Site
+
+![Deployed Public Site](https://justinvolk.com/tic-tac-toe/)
+
+
 ## Contributors:
 
 Justin Volk
@@ -50,9 +55,9 @@ JavaScript
 
 **Functionality of Draw**
 
-![Mobile Functionality](https://media.giphy.com/media/S8rICpmLcTzhd9mHHe/giphy.gif)
+![Draw Functionality](https://media.giphy.com/media/S8rICpmLcTzhd9mHHe/giphy.gif)
 
 **Functionality of scrolling win section*
 
-![Mobile Functionality](https://media.giphy.com/media/TgrXkn8KQQm8jqvGxV/giphy.gif)
+![Scrolling Win Section](https://media.giphy.com/media/TgrXkn8KQQm8jqvGxV/giphy.gif)
 
