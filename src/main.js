@@ -1,22 +1,17 @@
 
 // query selectors
 var topBannerSection = document.querySelector('.top-display');
-// var gameSection = document.querySelector('.play-area');
 var leftWinSectionUl = document.querySelector('.left-win');
 var rightWinSectionUl = document.querySelector('.right-win');
-// var gameBoardSection = document.querySelector('.game-board');
 var activeGame = document.querySelector('#active-game');
 
 // variables
-var player1 = new Player("justin", "x", undefined);
-var player2 = new Player("trevor", "o", undefined);
+var player1 = new Player("player1", "x", undefined);
+var player2 = new Player("player2", "o", undefined);
 var game = new Game(player1, player2);
 window.onload = retrieveWinData();
 // event listeners
-topBannerSection.addEventListener('click', updateTopBanner);
-// gameSection.addEventListener('click', (function(){}))
-// leftWinSectionUl.addEventListener('click', (function() {}))
-// rightWinSection.addEventListener('click', (function() {}))
+
 activeGame.addEventListener('click', (function(event) {
   // find the click for what space it was in using event.target.closest();
   var target = event.target;
@@ -79,7 +74,6 @@ activeGame.addEventListener('click', (function(event) {
  } 
 // event handlers
 function updateTopBanner() {
-  console.log("wtffffff")
 }
 // functions
 

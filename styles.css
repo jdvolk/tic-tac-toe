@@ -20,20 +20,21 @@ body {
 
 }
 h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
 }
 .play-area {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  max-height: 592px;
 }
 .win-display {
-  max-width: 200px;
-  display: flex;
-  flex: auto; 
-  /* box-shadow: var(--shadow-game-box); */
+  box-shadow: var(--shadow-game-box);
   border-radius: 20px;
   margin: 10px 10px 10px;
   padding: 10px;
+  min-width: 200px;
+  text-align: center;
 }
 .top-display {
   display: flex;
@@ -48,8 +49,8 @@ h1, h2, h3, h4, h5, h6 {
 .game-board {
   margin: 10px;
   display: grid;
-  grid-template-columns: 150px 150px 150px;
-  grid-template-rows: 150px 150px 150px;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-template-rows: repeat(3, minmax(150px, 1fr));
   grid-gap: 25px;
   border-radius: 20px;
   padding: 35px;
@@ -58,6 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 .game-box {
   display: flex;
   justify-content: center;
+
   box-shadow:  var(--shadow-game-box);
   border-radius: 20px;
 }
@@ -67,10 +69,10 @@ h1, h2, h3, h4, h5, h6 {
   filter: drop-shadow(7px 13px 0px #505050)
 }
 .mini-board {
-  grid-template-columns: 15px 15px 15px;
-  grid-template-rows: 15px 15px 15px;
-  width: 20px;
-  padding: 5px;
+  margin: auto;
+  grid-template-columns: repeat(3, minmax(20px, 1fr));
+  grid-template-rows: repeat(3, minmax(20px, 1fr));
+  padding: 10px;
   grid-gap: 5px;
   box-shadow: none;
 }
@@ -84,13 +86,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ul {
-  margin: 10px;
-  padding-inline-start: 30px;
+  padding-inline-start: 0px;
   list-style: none;
+  column-count: 2;
+  break-inside: avoid;
 }
-ul:before{
-  content:attr(aria-label);
-  font-size:100%;
-  font-weight: bold;
-  color: #cccccc; 
+li {
+  break-inside: avoid;
+}
+.win-scroll {
+  overflow-y: auto;
+  max-height: 85%;
 }

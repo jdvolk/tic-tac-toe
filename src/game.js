@@ -7,16 +7,12 @@ class Game {
       "", "", "",
     ]; 
     this.player1 = player1;
-    this.player2 = player2;
-    
+    this.player2 = player2; 
     // could flip a coin to decide 
     this.currentTurn = player1;
     this.winner = undefined;
 
   }
-
-  // way to keep track of the date for the game board
-
   makeMove(spot, player) {
     if (player !== this.currentTurn) {
       return false;
@@ -34,10 +30,6 @@ class Game {
   // way to keep track of which players turn it is
   whosTurn() {
     return this.currentTurn;
-    // who goes first
-    // who goes second (!first)
-    // repeat
-    // cant go twice in a row
   }
   swapTurn() {
     if (this.currentTurn === this.player1) {
@@ -65,24 +57,14 @@ class Game {
       //  loop though win condition array
       if (player.token === this.board[spotOne] && player.token === this.board[spotTwo] && player.token === this.board[spotThree]) {
         this.saveWin(player);
-        // this.completeGame(player, true);
         // then player won
       } else {
         // the move on with game
       }
     }
-    // if (!winningConditions) {
-      //   this.isDraw();
-      // } 
+
   }
-  // completeGame(player, isWin) {
-  //   if (isWin === true) {
-  //     this.saveWin(player);
-  //   }
-    // save win to storage
-    // game state is done
-    // reset the board
-  // }
+
   // way to detect if game is a draw
   isDraw() {
     if(!this.board.includes("") && (this.winner === undefined)) {
