@@ -1,29 +1,23 @@
 
-// query selectors
 var topBannerSection = document.querySelector('.top-display');
 var leftWinSectionUl = document.querySelector('.left-win');
 var rightWinSectionUl = document.querySelector('.right-win');
 var activeGame = document.querySelector('#active-game');
-
-// variables
-var player1 = new Player("player1", "x", undefined);
-var player2 = new Player("player2", "o", undefined);
+var player1 = new Player('player1', 'x', undefined);
+var player2 = new Player('player2', 'o', undefined);
 var game = new Game(player1, player2);
 window.onload = retrieveWinData();
-// event listeners
+activeGame.addEventListener('click', mainGame);
 
-activeGame.addEventListener('click', (function(event) {
-  // find the click for what space it was in using event.target.closest();
+function mainGame(event) {
   var target = event.target;
-  var clickedSquare = target.closest("section > div");
+  var clickedSquare = target.closest('section > div');
   if (!clickedSquare) {
     return;
-    // dont care if click something other than a square
   }
   if(game.winner !== undefined || game.isDraw()) {
     resetGame();
     return;
-    // if winner or draw game will reset on click
   }
   var whosTurn = game.whosTurn()
   var squareId = clickedSquare.dataset.spaceId;
@@ -36,13 +30,10 @@ activeGame.addEventListener('click', (function(event) {
     } else if (game.isDraw()) {
       updateTopBanner("Game is a draw");
     }
-    //check win || draw
   } else {
     alert("Please pick another space");
   }
-  // check whos turn it is
-  // put that player token in the space that was clicked
-}))
+}
 
  function drawWins() {
   leftWinSectionUl.innerHTML = "";
@@ -56,6 +47,7 @@ activeGame.addEventListener('click', (function(event) {
     rightWinSectionUl.innerHTML += winHTML;
   }
  }
+
  function createWinHtml(winningBoard) {
    return `
    <li>
@@ -72,16 +64,14 @@ activeGame.addEventListener('click', (function(event) {
     </section>
   </li>`
  } 
-// event handlers
+
 function updateTopBanner(string) {
   if(string) {
     topBannerSection.innerText = string;
   } else {
     topBannerSection.innerText = "Lets Play!";
   }
-
 }
-// functions
 
 function generateTokenHTML(token) {
   if (!token) {
@@ -89,6 +79,7 @@ function generateTokenHTML(token) {
   }
   return `<img class="token" src="assets/${token}-token.svg" />`;
 }
+
 function retrieveWinData() {
   player1.retrieveWins();
   player2.retrieveWins();

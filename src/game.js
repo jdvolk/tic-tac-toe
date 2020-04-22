@@ -1,5 +1,4 @@
 class Game {
-  // game should include:
   constructor(player1, player2) {
     this.board = [
       "", "", "",
@@ -8,11 +7,10 @@ class Game {
     ]; 
     this.player1 = player1;
     this.player2 = player2; 
-    // could flip a coin to decide 
     this.currentTurn = player1;
     this.winner = undefined;
-
   }
+
   makeMove(spot, player) {
     if (player !== this.currentTurn) {
       return false;
@@ -27,7 +25,6 @@ class Game {
       return true;
     }
   }
-  // way to keep track of which players turn it is
   whosTurn() {
     return this.currentTurn;
   }
@@ -38,7 +35,6 @@ class Game {
       this.currentTurn = this.player1;
     }
   }
-  // way to check the boards data for win conditions
   checkWinConditions(player) {
     var winningConditions = [
       [0, 1, 2],
@@ -57,15 +53,11 @@ class Game {
       //  loop though win condition array
       if (player.token === this.board[spotOne] && player.token === this.board[spotTwo] && player.token === this.board[spotThree]) {
         this.saveWin(player);
-        // then player won
       } else {
         // the move on with game
       }
     }
-
   }
-
-  // way to detect if game is a draw
   isDraw() {
     if(!this.board.includes("") && (this.winner === undefined)) {
       return true;
@@ -73,13 +65,11 @@ class Game {
       return false;
     }
   }
-  // way to save the boards data to correct player's win array
   saveWin(player) {
     this.winner = player;
     player.wins.push(this.board);
     player.saveWinsToStorage();
   }
-  // a way to reset the game's board data to begin a new game
   resetBoard() {
     this.board = [
       "", "", "",

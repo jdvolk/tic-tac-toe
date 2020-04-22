@@ -1,10 +1,10 @@
 class Player {
   constructor(id, token, wins) {
-    // properties should include id, token, wins(ex: [])
     this.id = id;
     this.token = token;
     this.wins = wins || [];
   }
+  
   saveWinsToStorage() {
     localStorage.setItem(`player_${this.id}_wins`, JSON.stringify(this.wins));
   }
