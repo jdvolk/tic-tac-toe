@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-game-box);
   border-radius: 20px;
   margin: 10px 10px 10px;
-  padding: 10px;
+  padding: 0px 25px;
   min-width: 200px;
   text-align: center;
 }
@@ -74,6 +74,8 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-rows: repeat(3, minmax(20px, 1fr));
   padding: 10px;
   grid-gap: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
   box-shadow: none;
 }
 .mini-board .game-box {
@@ -93,6 +95,7 @@ ul {
 }
 li {
   break-inside: avoid;
+  margin-bottom: 10px;
 }
 .win-scroll {
   overflow-y: auto;
