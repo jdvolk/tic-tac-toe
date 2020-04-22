@@ -105,4 +105,8 @@ class Game {
       "", "", "",
     ];
   }
+  resetGame() {
+    this.resetBoard();
+    this.winner = undefined;
+  }
 }

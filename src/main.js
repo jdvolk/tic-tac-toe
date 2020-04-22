@@ -1,10 +1,11 @@
 
 // query selectors
 var topBannerSection = document.querySelector('.top-display');
-var gameSection = document.querySelector('.play-area');
+// var gameSection = document.querySelector('.play-area');
 var leftWinSectionUl = document.querySelector('.left-win');
 var rightWinSectionUl = document.querySelector('.right-win');
-var gameBoardSection = document.querySelector('.game-board');
+// var gameBoardSection = document.querySelector('.game-board');
+var activeGame = document.querySelector('#active-game');
 
 // variables
 var player1 = new Player("justin", "x", undefined);
@@ -13,16 +14,21 @@ var game = new Game(player1, player2);
 window.onload = retrieveWinData();
 // event listeners
 topBannerSection.addEventListener('click', updateTopBanner);
-gameSection.addEventListener('click', (function(){}))
+// gameSection.addEventListener('click', (function(){}))
 // leftWinSectionUl.addEventListener('click', (function() {}))
 // rightWinSection.addEventListener('click', (function() {}))
-gameBoardSection.addEventListener('click', (function(event) {
+activeGame.addEventListener('click', (function(event) {
   // find the click for what space it was in using event.target.closest();
   var target = event.target;
   var clickedSquare = target.closest("section > div");
   if (!clickedSquare) {
     return;
     // dont care if click something other than a square
+  }
+  if(game.winner !== undefined || game.isDraw()) {
+    resetGame();
+    return;
+    // if winner or draw game will reset on click
   }
   var whosTurn = game.whosTurn()
   var squareId = clickedSquare.dataset.spaceId;
@@ -33,7 +39,7 @@ gameBoardSection.addEventListener('click', (function(event) {
       topBannerSection.innerText = `${game.winner.id} won!`;
       drawWins();
     } else if (game.isDraw()) {
-      console.log("doBetter")
+      topBannerSection.innerText = "Game is a draw";
     }
     //check win || draw
   } else {
@@ -76,40 +82,6 @@ function updateTopBanner() {
   console.log("wtffffff")
 }
 // functions
-function playGame() {
-  // debugger
-  // var player1 = new Player("justin", "x", undefined);
-  // var player2 = new Player("trevor", "o", undefined);
-  // var game1 = new Game(player1, player2);
-  // for(;;) {
-    // player choses spot
-    // var moveResult = game1.makeMove(0 ,player1);
-    // var moveResult = game1.makeMove(1, player2);
-    // var moveResult = game1.makeMove(2, player1);
-    // var moveResult = game1.makeMove(3, player2);
-    // var moveResult = game1.makeMove(5, player1);
-    // var moveResult = game1.makeMove(4, player2);
-    // var moveResult = game1.makeMove(7, player1);
-    // var moveResult = game1.makeMove(6, player2);
-    // var moveResult = game1.makeMove(8, player1);
-      // // check spot taken
-      // if taken ask again
-    // if (moveResult === false) {
-        //   // ask again
-    // }
-    // if (game1.winner !== undefined) {
-    //   console.log(game1.winner)
-    // } else if (game1.isDraw()) {
-    //   console.log("doBetter")
-    // }
-    // if not taken mark spot
-    // check board for win conditions
-    // game1.resetBoard();
-    // break;
-    // remove break after testing
-  }
-
-}
 
 function generateTokenHTML(token) {
   if (!token) {
@@ -123,9 +95,10 @@ function retrieveWinData() {
   drawWins();
 }
 
-// function retrieveFromStorage() {
-//   savedIdeasArray = JSON.parse(localStorage.getItem("savedIdeasArray")) || [];
-
-  //   var reinstatedIdea = new Idea(currentIdea.id, currentIdea.title, currentIdea.body, currentIdea.star);
-  //   savedIdeasArray[i] = reinstatedIdea;
-  // updatePageHtml(savedIdeasArray);
+function resetGame() {
+  game.resetGame();
+  var playedTokens = activeGame.querySelectorAll('.token');
+  for (var i = 0; i < playedTokens.length; i++) {
+    playedTokens[i].remove();
+  }
+}
