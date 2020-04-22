@@ -2,7 +2,7 @@
 
 ## Deployed Public Site
 
-![Deployed Public Site](https://justinvolk.com/tic-tac-toe/)
+[Deployed Public Site](https://justinvolk.com/tic-tac-toe/)
 
 
 ## Contributors:
