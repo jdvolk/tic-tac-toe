@@ -1,10 +1,11 @@
 
 // query selectors
 var topBannerSection = document.querySelector('.top-display');
-var gameSection = document.querySelector('.play-area');
+// var gameSection = document.querySelector('.play-area');
 var leftWinSectionUl = document.querySelector('.left-win');
 var rightWinSectionUl = document.querySelector('.right-win');
-var gameBoardSection = document.querySelector('.game-board');
+// var gameBoardSection = document.querySelector('.game-board');
+var activeGame = document.querySelector('#active-game');
 
 // variables
 var player1 = new Player("justin", "x", undefined);
@@ -13,16 +14,21 @@ var game = new Game(player1, player2);
 window.onload = retrieveWinData();
 // event listeners
 topBannerSection.addEventListener('click', updateTopBanner);
-gameSection.addEventListener('click', (function(){}))
+// gameSection.addEventListener('click', (function(){}))
 // leftWinSectionUl.addEventListener('click', (function() {}))
 // rightWinSection.addEventListener('click', (function() {}))
-gameBoardSection.addEventListener('click', (function(event) {
+activeGame.addEventListener('click', (function(event) {
   // find the click for what space it was in using event.target.closest();
   var target = event.target;
   var clickedSquare = target.closest("section > div");
   if (!clickedSquare) {
     return;
     // dont care if click something other than a square
+  }
+  if(game.winner !== undefined || game.isDraw()) {
+    resetGame();
+    return;
+    // if winner or draw game will reset on click
   }
   var whosTurn = game.whosTurn()
   var squareId = clickedSquare.dataset.spaceId;
@@ -33,7 +39,7 @@ gameBoardSection.addEventListener('click', (function(event) {
       topBannerSection.innerText = `${game.winner.id} won!`;
       drawWins();
     } else if (game.isDraw()) {
-      console.log("doBetter")
+      topBannerSection.innerText = "Game is a draw";
     }
     //check win || draw
   } else {
@@ -89,3 +95,10 @@ function retrieveWinData() {
   drawWins();
 }
 
+function resetGame() {
+  game.resetGame();
+  var playedTokens = activeGame.querySelectorAll('.token');
+  for (var i = 0; i < playedTokens.length; i++) {
+    playedTokens[i].remove();
+  }
+}
