@@ -57,7 +57,7 @@ JavaScript
 
 ![Draw Functionality](https://media.giphy.com/media/S8rICpmLcTzhd9mHHe/giphy.gif)
 
-**Functionality of scrolling win section*
+**Functionality of scrolling win section**
 
 ![Scrolling Win Section](https://media.giphy.com/media/TgrXkn8KQQm8jqvGxV/giphy.gif)
 
